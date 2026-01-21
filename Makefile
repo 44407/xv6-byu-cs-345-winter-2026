@@ -206,9 +206,7 @@ UPROGS=\
 	$U/_ex7\
 	$U/_ex8\
 	$U/_ex9\
-	$U/_attack\
-	$U/_attacktest\
-	$U/_trace\
+	#$U/_trace\
 
 
 
