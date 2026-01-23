@@ -22,9 +22,7 @@ kvmmake(void)
   pagetable_t kpgtbl;
 
   kpgtbl = (pagetable_t) kalloc();
-#ifndef LAB_SYSCALL
   memset(kpgtbl, 0, PGSIZE);
-#endif
 
   // uart registers
   kvmmap(kpgtbl, UART0, UART0, PGSIZE, PTE_R | PTE_W);
@@ -247,7 +245,9 @@ uvmalloc(pagetable_t pagetable, uint64 oldsz, uint64 newsz, int xperm)
       uvmdealloc(pagetable, a, oldsz);
       return 0;
     }
+#ifndef LAB_SYSCALL
     memset(mem, 0, PGSIZE);
+#endif
     if(mappages(pagetable, a, PGSIZE, (uint64)mem, PTE_R|PTE_U|xperm) != 0){
       kfree(mem);
       uvmdealloc(pagetable, a, oldsz);
