@@ -22,7 +22,9 @@ kvmmake(void)
   pagetable_t kpgtbl;
 
   kpgtbl = (pagetable_t) kalloc();
+#ifndef LAB_SYSCALL
   memset(kpgtbl, 0, PGSIZE);
+#endif
 
   // uart registers
   kvmmap(kpgtbl, UART0, UART0, PGSIZE, PTE_R | PTE_W);
