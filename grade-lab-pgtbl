@@ -32,9 +32,9 @@ def test_print_kpgtbl_():
         '^ \.\. \.\. \.\.(0xfffffffffffff000|0x0000003ffffff000)',
     )
 
-#@test(15, "pgtbltest: superpg", parent=test_pgtbltest)
-#def test_superpg_():
-#    r.match('^superpg_test: OK$')
+@test(15, "pgtbltest: superpg", parent=test_pgtbltest)
+def test_superpg_():
+    r.match('^superpg_test: OK$')
 
 @test(0, "dptest")
 def test_dptest():
